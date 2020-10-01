@@ -7,5 +7,5 @@ deploy-app:
 username:
 	echo ${USERNAME}
 replace-user-in-yaml:
-	sed -i.bak "s/\$\{USERNAME\}/${USERNAME}/g" yaml/*.yaml
-	sed -i.bak "s/\$\{PASSWORD\}/${PASSWORD}/g" yaml/*.yaml
+	sed -i "s/__USERNAME__/${USERNAME}/g" yaml/*.yaml
+	sed -i "s/__PASSWORD__/${PASSWORD}/g" yaml/*.yaml
