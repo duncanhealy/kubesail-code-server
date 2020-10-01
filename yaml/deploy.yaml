@@ -4,7 +4,7 @@ metadata:
   labels:
     app: code-server
   name: code-server
-  namespace: ${USERNAME}
+  namespace: __USERNAME__
 spec:
   selector:
     matchLabels:
@@ -21,4 +21,4 @@ spec:
           name: code-server
           env:
             - name: PASSWORD
-              value: "test_password"
+              value: "__PASSWORD__"
