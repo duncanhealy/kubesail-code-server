@@ -1,0 +1,31 @@
+# apiVersion: networking.k8s.io/v1beta1
+# kind: Ingress
+# metadata:
+# name: code-server
+# namespace: ${USERNAME}
+# annotations:
+#   kubernetes.io/ingress.class: nginx
+#   cert-manager.io/cluster-issuer: letsencrypt-prod
+# spec:
+#   tls:
+#     - hosts:
+#         - code-server.your_domain
+#       secretName: codeserver-prod
+# rules:
+#   - host: code-server.your_domain
+#     http:
+#       paths:
+#         - backend:
+#             serviceName: code-server
+#             servicePort: 80
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: code-server
+spec:
+  rules:
+    - http:
+        paths:
+          - backend:
+              serviceName: code-server
+              servicePort: 8080
