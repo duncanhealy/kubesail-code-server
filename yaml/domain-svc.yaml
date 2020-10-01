@@ -1,0 +1,33 @@
+# #?filename=domain-svc.yaml
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   name: my-app
+# spec:
+#   ports:
+#   - name: tcp
+#     port: 8080
+#     protocol: TCP
+#     targetPort: 8080
+#   selector:
+#     app: nginx
+#   type: ClusterIP
+
+# ---
+# #?filename=domain-svc.yaml
+# apiVersion: networking.k8s.io/v1beta1
+# kind: Ingress
+# metadata:
+#   name: domain-ingress
+# spec:
+#   rules:
+#   - host: test.mywebsite.com
+#     http:
+#       paths:
+#       - backend:
+#           serviceName: my-app
+#           servicePort: 8080
+#   tls:
+#   - hosts:
+#     - test.mywebsite.com
+#     secretName: testsecret-tls
